@@ -31,7 +31,13 @@ RSpec.describe StringCalculatorService do
 
     it 'raises an error when negative numbers are present' do
       expect { StringCalculatorService.add("1,-2,3,-4") }
-        .to raise_error(RuntimeError, "negative numbers not allowed -2,-4")
+        .to raise_error(ArgumentError, "Negative numbers not allowed -2,-4")
     end
+
+    it "raises error when input has a trailing comma" do
+      expect { StringCalculatorService.add("1,2,3,") }
+        .to raise_error(ArgumentError, /number expected/)
+    end
+
   end
 end
