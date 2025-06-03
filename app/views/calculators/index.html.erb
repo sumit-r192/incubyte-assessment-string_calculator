@@ -1,0 +1,13 @@
+<h1>String Calculator</h1>
+
+<%= form_with url: calculate_path, local: true do |form| %>
+  <%= form.label :numbers, "Enter numbers:" %><br>
+  <%= form.text_area :numbers, rows: 4, cols: 40 %><br><br>
+  <%= form.submit "Calculate" %>
+<% end %>
+
+<% if @result %>
+  <p><strong>Result:</strong> <%= @result %></p>
+<% elsif @error %>
+  <p style="color: red;"><strong>Error:</strong> <%= @error %></p>
+<% end %>
