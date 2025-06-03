@@ -23,5 +23,10 @@ RSpec.describe StringCalculatorService do
       expect(StringCalculatorService.add("1\n2,3")).to eq(6)
       expect(StringCalculatorService.add("4\n5\n6")).to eq(15)
     end
+
+    it 'supports custom single-character delimiters' do
+      expect(StringCalculatorService.add("//;\n1;2")).to eq(3)
+      expect(StringCalculatorService.add("//|\n4|5|6")).to eq(15)
+    end
   end
 end
