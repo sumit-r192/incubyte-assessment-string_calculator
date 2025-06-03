@@ -18,5 +18,10 @@ RSpec.describe StringCalculatorService do
       expect(StringCalculatorService.add("1,2,3,4,5")).to eq(15)
       expect(StringCalculatorService.add("10,20,30")).to eq(60)
     end
+
+    it 'supports newlines between numbers as delimiters' do
+      expect(StringCalculatorService.add("1\n2,3")).to eq(6)
+      expect(StringCalculatorService.add("4\n5\n6")).to eq(15)
+    end
   end
 end

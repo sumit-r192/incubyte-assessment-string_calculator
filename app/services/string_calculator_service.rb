@@ -2,6 +2,7 @@ class StringCalculatorService
   def self.add(numbers)
     return 0 if numbers.empty?
 
-    numbers.split(',').map(&:to_i).sum
+    # Split by comma or newline
+    numbers.split(/,|\n/).map(&:to_i).sum
   end
 end
