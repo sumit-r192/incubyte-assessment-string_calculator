@@ -16,7 +16,8 @@ class StringCalculatorService
 
     parts = numbers.split(/#{delimiter}/)
 
-    nums = parts.map(&:to_i)
+    # nums = parts.map(&:to_i)
+    nums = parts.map(&:to_i).reject { |n| n > 1000 }
     negatives = nums.select(&:negative?)
     if negatives.any?
       raise ArgumentError, "Negative numbers not allowed #{negatives.join(',')}"

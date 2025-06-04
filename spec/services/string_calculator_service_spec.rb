@@ -39,5 +39,9 @@ RSpec.describe StringCalculatorService do
         .to raise_error(ArgumentError, /number expected/)
     end
 
+    it "ignores numbers greater than 1000" do
+      expect(StringCalculatorService.add("2,1001")).to eq(2)
+    end
+
   end
 end
