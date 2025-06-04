@@ -16,6 +16,10 @@ class StringCalculatorService
 
     parts = numbers.split(/#{delimiter}/)
 
+    if parts.any? { |p| p.strip.empty? }
+      raise ArgumentError, "Invalid input: number expected but got empty value"
+    end
+
     # nums = parts.map(&:to_i)
     nums = parts.map(&:to_i).reject { |n| n > 1000 }
     negatives = nums.select(&:negative?)

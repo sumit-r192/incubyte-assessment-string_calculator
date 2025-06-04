@@ -43,5 +43,10 @@ RSpec.describe StringCalculatorService do
       expect(StringCalculatorService.add("2,1001")).to eq(2)
     end
 
+    it "raises error for inputs with empty or space-only values" do
+      expect {
+        StringCalculatorService.add("1, ,3")
+      }.to raise_error(ArgumentError, /number expected/)
+    end
   end
 end
