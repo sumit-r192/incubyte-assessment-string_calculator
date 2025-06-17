@@ -27,6 +27,10 @@ class StringCalculatorService
       raise ArgumentError, "Negative numbers not allowed #{negatives.join(',')}"
     end
 
-    nums.sum
+    if delimiter_char == '*'
+      eval(nums.join(delimiter_char))
+    else
+      nums.sum
+    end
   end
 end

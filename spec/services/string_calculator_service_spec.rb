@@ -48,5 +48,9 @@ RSpec.describe StringCalculatorService do
         StringCalculatorService.add("1, ,3")
       }.to raise_error(ArgumentError, /number expected/)
     end
+
+    it 'supports custom single-character delimiters * to multiply the number' do
+      expect(StringCalculatorService.add("//*\n2*2*2")).to eq(8)
+    end
   end
 end
